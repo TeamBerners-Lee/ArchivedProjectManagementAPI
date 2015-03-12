@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  resources :groups do
+    resources :users
+    resources :projects
+  end
+
+  resources :projects, :users do
+    resources :tasks
+  end
+
+  root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
